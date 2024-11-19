@@ -1,16 +1,22 @@
 import React from "react";
 import Card from "../../components/Card";
+import FetchComponent from "../../components/FetchComponent";
+import { API_URL_USERS } from "../../Data/Admin/APIvars";
 
 export default function Overview() {
   const RankedUsers = () => {
     return (
       <div className="RankedUsers">
-        <h3>Ranking users</h3>
-        <ol>
-          <li>Alloyce</li>
-          <li>Abed</li>
-          <li>Room3</li>
-        </ol>
+        <FetchComponent
+          url={API_URL_USERS}
+          render={(data) => (
+            <ol>
+              {data.map((user, index) => (
+                <li key={index}>{user.name}</li>
+              ))}
+            </ol>
+          )}
+        />
       </div>
     );
   };
