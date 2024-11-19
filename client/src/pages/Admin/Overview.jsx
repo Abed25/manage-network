@@ -7,6 +7,7 @@ export default function Overview() {
   const RankedUsers = () => {
     return (
       <div className="RankedUsers">
+        <h3>Ranked users</h3>
         <FetchComponent
           url={API_URL_USERS}
           render={(data) => (
